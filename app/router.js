@@ -6,8 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('bands', function{
- 		this.route('songs');
+  this.route('bands', function(){
+        this.route('songs');
   });
 });
 
