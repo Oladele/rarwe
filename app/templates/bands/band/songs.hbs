@@ -24,7 +24,7 @@
 
 
 
-    {{#if noSongs}}
+    {{#unless canCreateSong}}
       <div class="list-group-item empty-list">
         <div class="empty-message">
           There are no songs yet. Why don't you 
@@ -33,6 +33,6 @@
           </a>
         </div>
       </div>
-    {{/if}}
+    {{/unless}}
   </ul>
 </div>
