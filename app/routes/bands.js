@@ -1,18 +1,21 @@
 import Ember from 'ember';
 
-// Definitions
-var Band = Ember.Object.extend({ 
-	name: '',
-	slug: Ember.computed('name', function(){
-		return this.get('name').dasherize();
-	}),
-});
+// Definitions: Use Model defs instead of Ember.Object
 
-var Song = Ember.Object.extend({ 
-	title: '',
-	rating: 0,
-	band: ''
-});
+import Band from '../models/band';
+// var Band = Ember.Object.extend({ 
+// 	name: '',
+// 	slug: Ember.computed('name', function(){
+// 		return this.get('name').dasherize();
+// 	}),
+// });
+
+import Song from '../models/song';
+// var Song = Ember.Object.extend({ 
+// 	title: '',
+// 	rating: 0,
+// 	band: ''
+// });
 
 
 // Songs Seed Data
@@ -69,5 +72,14 @@ bands.get('content').pushObjects([ledZeppelin, pearlJam, fooFighters]);
 export default Ember.Route.extend({
 	model: function(){
 		return bands;
+	},
+
+	actions: {
+		createBand: function(){
+			var name = this.get('controller').get('name');
+			var band = Band.create({ name: name });
+			bands.get('content').pushObject(band);
+			this.get('controller').set('name','');
+		}
 	}
 });
