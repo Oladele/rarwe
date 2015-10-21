@@ -1,3 +1,4 @@
+/* App Globals*/
 html, body {
   margin: 20px;
 } 
@@ -6,16 +7,17 @@ html, body {
 	color: #555;
 }
 
-.list-wrapper { 
-	margin-left: 0; 
-	margin-right: 0;
-}
-
 .navbar-default .navbar-nav > li > a.active, 
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
   color: #555555;
   background-color: #e7e7e7;
+}
+
+/* list bands and songs*/
+.list-wrapper { 
+	margin-left: 0; 
+	margin-right: 0;
 }
 
 .songs .rating { 
@@ -43,6 +45,7 @@ html, body {
 	display: block;
 }
 
+/* Add new band and song */
 .new-band {
 	width: 82%;
 }
@@ -57,4 +60,9 @@ html, body {
 
 .new-song-button { 
 	margin-left: 20px;
+}
+
+/*star rating of songs*/
+.rating-panel {
+	float: right;
 }
