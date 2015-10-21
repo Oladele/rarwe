@@ -21,6 +21,16 @@ export default Ember.Component.extend({
 			starsData.push({ rating: i, full: type === 'full'});
 		}
 		return starsData;
+	},
+
+	actions:{
+		set: function(newRating){
+			// this.get('item').set('rating', newRating);
+			this.sendAction('setAction', {
+				item: this.get('item'),
+				rating: newRating
+			});
+		}
 	}
-	
+
 });
