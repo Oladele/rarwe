@@ -48,9 +48,9 @@ test('visiting /bands', function(assert) {
   visit('/bands');
 
   andThen(function() {
-    assert.equal(find('.band-link').length, 2, "All band links are rendered");
-    assert.equal(find('.band-link:contains("Radiohead")').length, 1, "First band link contains the band name");
-    assert.equal(find('.band-link:contains("Long Distance Calling")').length, 1, "The other band link contains the band name");
+    assertLength(assert, '.band-link', 2, "All band links are rendered");
+    assertLength(assert, '.band-link:contains("Radiohead")', 1, "First band link contains the band name");
+    assertLength(assert, '.band-link:contains("Long Distance Calling")', 1, "The other band link contains the band name");
   });
 });
 
