@@ -22,27 +22,23 @@ module('Acceptance | bands', {
 test('visiting /bands', function(assert) {
   
   server = new Pretender(function() {
-    this.get('/bands', function() { 
-      var response = {
-        data: [ 
-          {
-            id: 1,
-            type: "bands",
-            attributes: {
-              name: "Radiohead"
-            }
-          }, 
-          {
-            id: 2,
-            type: "bands",
-            attributes: {
-              name: "Long Distance Calling"
-            }
-          },
-        ]
-      };
-      return [200, { "Content-Type": "application/vnd.api+json" }, JSON.stringify(response)];
-    });
+    var data = [ 
+      {
+        id: 1,
+        type: "bands",
+        attributes: {
+          name: "Radiohead"
+        }
+      }, 
+      {
+        id: 2,
+        type: "bands",
+        attributes: {
+          name: "Long Distance Calling"
+        }
+      },
+    ];
+    httpStubs.stubBands(this, data); 
   });
 
 
