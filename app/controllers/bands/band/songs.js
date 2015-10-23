@@ -1,6 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	queryParams: {
+		sortBy: 'sort',
+		searchTerm: 's',
+	},
+
+
 	title: '',
 	songCreationStarted: false,
 
