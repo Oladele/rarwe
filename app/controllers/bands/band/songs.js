@@ -18,7 +18,19 @@ export default Ember.Controller.extend({
 		return this.get('songCreationStarted') || this.get('model.songs.length');
 	}),
 
-	sortProperties: ['rating:desc', 'title:asc'],
+	// sortProperties: ['rating:desc', 'title:asc'],
+	sortBy: 'ratingDesc',
+	sortProperties: Ember.computed('sortBy', function() {
+		var options = {
+			"ratingDesc": "rating:desc,title:asc", 
+			"ratingAsc": "rating:asc,title:asc", 
+			"titleDesc": "title:desc", 
+			"titleAsc": "title:asc",
+		};
+
+		return options[this.get('sortBy')].split(',');
+	}),
+
   sortedSongs: Ember.computed.sort('model.songs', 'sortProperties'),
 	
 	actions: {
@@ -35,6 +47,10 @@ export default Ember.Controller.extend({
 
 		enableSongCreation: function(){
 			this.set('songCreationStarted', true);
-		}
+		},
+
+		setSorting: function(option) {
+      this.set('sortBy', option);
+    },
 	}
 });
