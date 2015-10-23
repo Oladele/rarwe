@@ -17,6 +17,9 @@ export default Ember.Controller.extend({
 		'model.songs.length', function() {
 		return this.get('songCreationStarted') || this.get('model.songs.length');
 	}),
+
+	sortProperties: ['rating:desc', 'title:asc'],
+  sortedSongs: Ember.computed.sort('model.songs', 'sortProperties'),
 	
 	actions: {
 		updateRating: function(params) {
