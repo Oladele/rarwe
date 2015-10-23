@@ -164,6 +164,7 @@ test('Sort songs in various ways', function(assert) { server = new Pretender(fun
   
   selectBand('Them Crooked Vultures');
 
+  // Default order sorted by 'rating:desc', 'title:asc' 
   andThen(function() {
     
     assert.equal(currentURL(), '/bands/1/songs'); 
@@ -175,6 +176,7 @@ test('Sort songs in various ways', function(assert) { server = new Pretender(fun
   
   click('button.sort-title-desc');
 
+  // Url changes and song is sorted when user clicks to sortby title
   andThen(function() {
     
     assert.equal(currentURL(), '/bands/1/songs?sort=titleDesc'); assertTrimmedText(assert, '.song:first', 'Spinning in Daffodils', "The first song is the one that is the last in the alphabet");
@@ -185,6 +187,7 @@ test('Sort songs in various ways', function(assert) { server = new Pretender(fun
   
   click('button.sort-rating-asc');
 
+  // Url changes and song is sorted when user clicks to sortby rating
   andThen(function() {
     assert.equal(currentURL(), '/bands/1/songs?sort=ratingAsc'); assertTrimmedText(assert, '.song:first', 'Mind Eraser, No Chaser', "The first song is the lowest ranked, first in the alphabet");
     
