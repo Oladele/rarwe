@@ -31,7 +31,20 @@ export default Ember.Controller.extend({
 		return options[this.get('sortBy')].split(',');
 	}),
 
-  sortedSongs: Ember.computed.sort('model.songs', 'sortProperties'),
+  sortedSongs: Ember.computed.sort('matchingSongs', 'sortProperties'),
+
+  // Search Songs
+  searchTerm: '',
+	matchingSongs: Ember.computed(
+		'model.songs.@each.title', 
+		'searchTerm',
+		function() {
+			var searchTerm = this.get('searchTerm').toLowerCase();
+			return this.get('model.songs').filter(function(song) {
+				return song.get('title').toLowerCase().indexOf(searchTerm) !== -1;
+			});
+		}
+	),
 	
 	actions: {
 		updateRating: function(params) {
