@@ -16,7 +16,7 @@
 			{{!-- List Bands --}}
 	    {{#each model as |band|}}
 	    	{{#link-to "bands.band" band class="list-group-item band-link"}}
-	      	{{band.name}}
+	      	{{capitalize band.name}}
 	      	<span class="pointer glyphicon glyphicon-chevron-right"></span>
 	      {{/link-to}}
 	    {{/each}}

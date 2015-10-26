@@ -179,7 +179,7 @@ test('Sort songs in various ways', function(assert) { server = new Pretender(fun
   // Url changes and song is sorted when user clicks to sortby title
   andThen(function() {
     
-    assert.equal(currentURL(), '/bands/1/songs?sort=titleDesc'); assertTrimmedText(assert, '.song:first', 'Spinning in Daffodils', "The first song is the one that is the last in the alphabet");
+    assert.equal(currentURL(), '/bands/1/songs?sort=titleDesc'); assertTrimmedText(assert, '.song:first', 'Spinning In Daffodils', "The first song is the one that is the last in the alphabet");
     
     assertTrimmedText(assert, '.song:last', 'Elephants', "The last song is the one that is the first in the alphabet");
   
@@ -191,7 +191,7 @@ test('Sort songs in various ways', function(assert) { server = new Pretender(fun
   andThen(function() {
     assert.equal(currentURL(), '/bands/1/songs?sort=ratingAsc'); assertTrimmedText(assert, '.song:first', 'Mind Eraser, No Chaser', "The first song is the lowest ranked, first in the alphabet");
     
-    assertTrimmedText(assert, '.song:last', 'Spinning in Daffodils', "The last song is the highest ranked, last in the alphabet");
+    assertTrimmedText(assert, '.song:last', 'Spinning In Daffodils', "The last song is the highest ranked, last in the alphabet");
   });
 });
 
