@@ -1,8 +1,6 @@
-{{#liquid-bind stars as |liquidStars|}}
-	{{#each liquidStars as |star|}}
-	  <span class="star-rating glyphicon 
-	  	{{if star.full 'glyphicon-star' 'glyphicon-star-empty'}}"
-	    {{action "set" star.rating}}>
-		</span>
-	{{/each}}
-{{/liquid-bind}}
+{{#each stars as |star|}}
+  <span class="star-rating glyphicon 
+  	{{if star.full 'glyphicon-star' 'glyphicon-star-empty'}}"
+    {{action "set" star.rating}}>
+	</span>
+{{/each}}
