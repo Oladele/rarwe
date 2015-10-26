@@ -5,7 +5,10 @@
       {{!-- Add Song  --}}
   		<div class="list-group-item">
         <form class="new-song-form" {{action "createSong" on="submit"}}>
-        	{{input type="text" class="new-song" placeholder="New song" value=title}}
+        	{{input type="text" 
+                  class="new-song" 
+                  placeholder=newSongPlaceHolder 
+                  value=title}}
           <button class="btn btn-primary btn-sm new-song-button" 
             disabled={{isAddButtonDisabled}}>
           	Add
