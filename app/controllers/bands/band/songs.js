@@ -38,7 +38,8 @@ export default Ember.Controller.extend({
 		return options[this.get('sortBy')].split(',');
 	}),
 
-  sortedSongs: Ember.computed.sort('matchingSongs', 'sortProperties'),
+  // sortedSongs: Ember.computed.sort('matchingSongs', 'sortProperties'),
+  sortedSongs: Ember.computed.alias('matchingSongs'),
 
   // Search Songs
   searchTerm: '',
