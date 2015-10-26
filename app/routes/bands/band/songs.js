@@ -1,9 +1,8 @@
 import Ember from 'ember';
-import wait from '../../../utils/wait';
 
 export default Ember.Route.extend({
 	model: function(){
-		return wait( this.modelFor('bands.band'), 3000 );
+		return this.modelFor('bands.band');
 	},
 
 	actions: {
