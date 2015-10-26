@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default function wait(value, delay) {
 	var promise = value.then && typeof value.then === 'function' ?
       value :
