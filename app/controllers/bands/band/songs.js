@@ -59,15 +59,24 @@ export default Ember.Controller.extend({
 	}),
 
 	actions: {
-		updateRating: function(params) {
-			var song = params.item,
-				rating = params.rating;
+		// updateRating: function(params) {
+		// 	var song = params.item,
+		// 		rating = params.rating;
 
-			if (song.get('rating') === rating) { 
-				rating = 0;
-      }
+		// 	console.log("updateRating song.get('rating'):", song.get('rating'));
+		// 	if (song.get('rating') === rating) { 
+		// 		rating = 0;
+  //     }
+		// 	song.set('rating', rating);
+		// 	song.save();
+		// },
+		updateRating: function(song, rating) {
+			console.log("updateRating song.get('rating'):", song.get('rating'));
+			if (song.get('rating') === rating) {
+				rating = null;
+			}
 			song.set('rating', rating);
-			song.save();
+			return song.save();
 		},
 
 		enableSongCreation: function(){
