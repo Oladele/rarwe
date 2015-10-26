@@ -5,4 +5,10 @@ export default function(){
 		this.use('toRight'),
 		this.reverse('toLeft')
 	);
+
+	this.transition(
+		this.hasClass('band-description'),
+		this.toValue(false),
+		this.use('fade', { duration: 500 } )
+	);
 }
