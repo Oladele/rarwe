@@ -12,6 +12,7 @@ Router.map(function() {
       this.route('songs');
     });
   });
+  this.route('bands-dashboard', {});
 });
 
 export default Router;
