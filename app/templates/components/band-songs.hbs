@@ -1,1 +1,9 @@
-<div> I'm a song </div>
+<div class="list-group songs">
+
+	{{#each songs as |song|}}
+	  <div class="list-group-item song">
+	    {{capitalize song.title}}
+	  </div>
+	{{/each}}
+
+</div>
